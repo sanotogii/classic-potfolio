@@ -31,7 +31,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning> 
       <body
         className={cn(
-          'flex min-h-screen flex-col font-sans antialiased',
+          'flex min-h-screen flex-col font-sans antialiased max-w-3xl mx-auto px-4',
           inter.variable,
           playfair.variable
         )}
@@ -43,7 +43,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <main className='grow'>{children}</main>
+          <main className='grow pt-28'>{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

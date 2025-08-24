@@ -1,25 +1,17 @@
-import fs from 'fs/promises'
-import path from 'path'
-import React from 'react'
+// src/app/posts/[slug]/page.tsx (server component)
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import remarkGfm from 'remark-gfm'
 import remarkFrontmatter from 'remark-frontmatter'
 import rehypeHighlight from 'rehype-highlight'
 import 'highlight.js/styles/atom-one-dark.css'
-import '../markdown.css'
 import { CodeBlock } from '@/components/code-block'
+import { getPostBySlug } from "@/lib/server-utils";
+import '../../markdown.css'
 
-export default async function Page() {
-  const filePath = path.join(process.cwd(), 'src', 'content', 'posts', 'test.mdx')
-  let content = ''
-  try {
-    content = await fs.readFile(filePath, 'utf8')
-  } catch (err) {
-    content = '# Could not load content.'
-  }
+export default async function PostPage({ params }: { params: { slug: string } }) {
+  const { data, content } = getPostBySlug(params.slug);
 
   return (
-    <main className="mx-auto max-w-4xl p-6">
       <article className="prose prose-lg dark:prose-invert max-w-none markdown-content atom-one-dark">
         <MDXRemote
           source={content}
@@ -36,6 +28,5 @@ export default async function Page() {
           }}
         />
       </article>
-    </main>
-  )
+  );
 }

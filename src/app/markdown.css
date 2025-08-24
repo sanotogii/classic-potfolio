@@ -1,3 +1,19 @@
+
+@import 'highlight.js/styles/atom-one-dark.css';
+
+/* Code block with copy button styles */
+.markdown-content .relative {
+  position: relative;
+}
+
+.markdown-content pre {
+  border-radius: 8px;
+  padding: 16px;
+  overflow-x: auto;
+  margin: 1rem 0;
+  background-color: #303540 !important;
+}
+
 /* Complete markdown styling */
 .markdown-content {
   color: rgb(17 24 39);
@@ -100,7 +116,7 @@
 }
 
 .markdown-content pre {
-  background-color: rgb(13 17 23) !important;
+  background-color: rgb(13 17 23);
   color: rgb(230 237 243);
   padding: 1rem;
   border-radius: 0.5rem;
@@ -109,7 +125,7 @@
 }
 
 .markdown-content pre code {
-  background-color: transparent !important;
+  background-color: transparent;
   padding: 0;
   color: inherit;
   font-size: 0.875rem;

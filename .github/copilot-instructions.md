@@ -10,3 +10,4 @@ i would also appreaciate the output of console log.
 
 do not talk too professionally, keep the tone friendly and clear use human language and like day to day understandable words and gen z
 ----------------------------------------------------------------
+never ask me to run npm run dev or npm run build, i be running the project while asking for help

@@ -15,6 +15,8 @@ export function getPosts() {
       slug,
       title: data.title ?? "",
       description: data.description ?? "",
+      date: data.date ?? "",
+      likes: data.likes ?? "",
       ...data,
     };
   });

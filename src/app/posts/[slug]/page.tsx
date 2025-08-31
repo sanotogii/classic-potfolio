@@ -10,6 +10,7 @@ import "../../markdown.css";
 import Link from "next/link";
 import { FaEye } from "react-icons/fa";
 import GeminiButton from "@/components/gemini-button";
+import axios from "axios";
 
 export default async function PostPage({
   params,
@@ -17,21 +18,17 @@ export default async function PostPage({
   params: { slug: string };
 }) {
   const { slug } = await params;
-  const post = await getPostBySlug(slug);
-  
+  // const post = await getPostBySlug(slug);
+  const res = await axios.get(`http://localhost:3000/api/blogs/${slug}`);
+  const post = res.data;
   // Fix MDX parsing issues with angle brackets
-  const sanitizedContent = post.content
-    ?.replace(/< /g, '&lt; ')
-    ?.replace(/ >/g, ' &gt;')
-    ?.replace(/</g, '&lt;')
-    ?.replace(/>/g, '&gt;') || '';
-  
-  // Debug: let's see what the content looks like
-  console.log('Post content:', {
-    contentType: typeof post.content,
-    contentLength: post.content?.length,
-    contentPreview: post.content?.substring(0, 100)
-  });
+  // const sanitizedContent =
+  //   post.content
+  //     ?.replace(/< /g, "&lt; ")
+  //     ?.replace(/ >/g, " &gt;")
+  //     ?.replace(/</g, "&lt;")
+  //     ?.replace(/>/g, "&gt;") || "";
+
 
   return (
     <>
@@ -45,15 +42,15 @@ export default async function PostPage({
           <p className="font-light">10 views - 4 min read</p>
         </div>
 
-      <GeminiButton />
+        <GeminiButton />
       </div>
       <hr />
 
       {/* ----------------------------------------- */}
       <article className="prose prose-lg dark:prose-invert max-w-none markdown-content atom-one-dark">
-        {sanitizedContent ? (
+        {
           <MDXRemote
-            source={sanitizedContent}
+            source={post.content}
             options={{
               mdxOptions: {
                 remarkPlugins: [remarkGfm, remarkFrontmatter],
@@ -66,12 +63,7 @@ export default async function PostPage({
               ),
             }}
           />
-        ) : (
-          <div>
-            <h1>{post.title}</h1>
-            <p>No content available for this post.</p>
-          </div>
-        )}
+}
       </article>
     </>
   );

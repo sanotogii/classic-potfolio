@@ -12,7 +12,7 @@ interface Post {
   description: string;
   date: string;
   likes: string | number;
-  [key: string]: any; // for additional frontmatter fields
+  [key: string]: any;
 }
 
 interface AnimatedPostsListProps {
@@ -24,6 +24,7 @@ export function AnimatedPostsList({ posts }: AnimatedPostsListProps) {
     <>
       <h1 className="text-3xl font-serif font-bold text-[#b97084] pb-4">Posts</h1>
       <Input placeholder="Search"/>
+      {/* --------------------------------------------- */}
       <hr className="my-4" />   
       <ul className="">
         {posts.map((p, index) => (

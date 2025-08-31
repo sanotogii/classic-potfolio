@@ -13,7 +13,7 @@ import axios from "axios";
 export default async function PostPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
   // const post = await getPostBySlug(slug);

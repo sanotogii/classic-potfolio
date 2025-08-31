@@ -17,7 +17,7 @@ export default async function PostPage({
 }) {
   const { slug } = await params;
   // const post = await getPostBySlug(slug);
-  const res = await axios.get(`http://localhost:3000/api/blogs/${slug}`);
+  const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL!}/api/blogs/${slug}`);
   const post = res.data;
   // Fix MDX parsing issues with angle brackets
   // const sanitizedContent =

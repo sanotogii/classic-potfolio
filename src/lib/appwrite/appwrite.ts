@@ -1,4 +1,4 @@
-import {Client, Users, Databases, ID, Query, TablesDB} from 'node-appwrite';
+import {Client, Users, ID, TablesDB} from 'node-appwrite';
 
 // Initialize the client for server-side operations
 const client = new Client()

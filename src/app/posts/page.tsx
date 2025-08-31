@@ -1,5 +1,3 @@
-
-import { getPosts } from "@/lib/appwrite/appwrite";
 import { AnimatedPostsList } from "@/components/animated-posts-list";
 import axios from "axios";
 export default async function PostsPage() {

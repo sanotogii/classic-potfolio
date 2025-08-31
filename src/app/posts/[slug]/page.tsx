@@ -1,11 +1,9 @@
-// src/app/posts/[slug]/page.tsx (server component)
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import remarkFrontmatter from "remark-frontmatter";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/atom-one-dark.css";
 import { CodeBlock } from "@/components/code-block";
-import { getPostBySlug } from "@/lib/appwrite/appwrite";
 import "../../markdown.css";
 import Link from "next/link";
 import { FaEye } from "react-icons/fa";

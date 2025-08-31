@@ -1,8 +1,4 @@
-import Image from "next/image";
-import { ModeToggle } from "@/components/theme-toggle";
 import Intro from "./intro";
-import {MDXRemote} from 'next-mdx-remote/rsc';
-import GeminiButton from "@/components/gemini-button";
 import {createUser} from "@/lib/appwrite/appwrite"
 
 async function handleCreateUser() {

@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
-import {client, tables} from "@/lib/appwrite/appwrite";
-import { ID , Query} from "node-appwrite";
+import { NextResponse } from "next/server";
+import { tables} from "@/lib/appwrite/appwrite";
+import { Query} from "node-appwrite";
 
 
 export async function GET(

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import {client, tables} from "@/lib/appwrite/appwrite";
+import { tables} from "@/lib/appwrite/appwrite";
 import { ID } from "node-appwrite";
 
 export type blog = {

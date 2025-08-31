@@ -5,10 +5,10 @@ import { Query} from "node-appwrite";
 
 export async function GET(
   request: Request,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 )  {
     try {
-        const { slug } = params;
+        const { slug } = await params;
         console.log('Fetching blog with slug:', slug);
         const response = await tables.listRows( process.env.APPWRITE_DATABASE_ID!, process.env.APPWRITE_TABLE_ID!, [
             Query.equal('slug', slug)

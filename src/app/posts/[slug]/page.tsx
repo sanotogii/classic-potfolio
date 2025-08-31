@@ -8,7 +8,8 @@ import "../../markdown.css";
 import Link from "next/link";
 import { FaEye } from "react-icons/fa";
 import GeminiButton from "@/components/gemini-button";
-import axios from "axios";
+
+export const dynamic = "force-dynamic";
 
 export default async function PostPage({
   params,
@@ -16,9 +17,11 @@ export default async function PostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  // const post = await getPostBySlug(slug);
-  const res = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL!}/api/blogs/${slug}`);
-  const post = res.data;
+
+  const base = process.env.NEXT_PUBLIC_BASE_URL ?? "";
+  const res = await fetch(`${base}/api/blogs/${slug}`, { cache: "no-store" });
+  if (!res.ok) throw new Error('Failed to fetch post');
+  const post = await res.json();
   // Fix MDX parsing issues with angle brackets
   // const sanitizedContent =
   //   post.content

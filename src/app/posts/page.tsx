@@ -1,12 +1,16 @@
 import { AnimatedPostsList } from "@/components/animated-posts-list";
-import axios from "axios";
+
+export const dynamic = "force-dynamic";
 export default async function PostsPage() {
-  // const posts = await getPosts(); // now fetching from Appwrite
-  const posts = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs`)
-  console.log('Fetched posts:', posts.data);
+
+  const base = process.env.NEXT_PUBLIC_BASE_URL ?? "";
+  const res = await fetch(`${base}/api/blogs`, { cache: "no-store" });
+  if (!res.ok) throw new Error('Failed to fetch posts');
+  const data = await res.json();
+  console.log('Fetched posts:', data);
   return (
     <main>
-      <AnimatedPostsList posts={posts.data} />
+      <AnimatedPostsList posts={data} />
 
     </main>
   );

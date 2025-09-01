@@ -7,7 +7,7 @@ const GeminiButton = () => {
   return (
     <motion.div
       whileHover={{ rotate: 360, scale: 1.4 }}
-      whileTap={{ scale: 0.95 }}
+      whileTap={{ scale: 0.9 }}
       className="text-[#b97084]"
     >
         <button onClick={() => console.log("clicked")}>

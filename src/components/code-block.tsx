@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Copy, Check } from 'lucide-react'
 
 interface CodeBlockProps {
@@ -10,9 +10,11 @@ interface CodeBlockProps {
 
 export function CodeBlock({ children, className }: CodeBlockProps) {
   const [copied, setCopied] = useState(false)
+  const preRef = useRef<HTMLPreElement | null>(null)
 
   const copyToClipboard = async () => {
-    const codeElement = document.querySelector(`pre.${className} code`)
+    const codeElement = preRef.current?.querySelector('code')
+      || (document.activeElement as HTMLElement)?.closest('.relative')?.querySelector('pre code')
     const text = codeElement?.textContent || ''
     
     try {
@@ -33,7 +35,7 @@ export function CodeBlock({ children, className }: CodeBlockProps) {
       >
         {copied ? <Check size={16} /> : <Copy size={16} />}
       </button>
-      <pre className={className}>
+      <pre ref={preRef} className={className}>
         {children}
       </pre>
     </div>

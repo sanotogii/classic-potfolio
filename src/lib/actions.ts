@@ -29,7 +29,6 @@ export async function generateSummaryContent(content: string): Promise<string> {
     for await (const chunk of response) {
         
         generatedText += chunk.text;
-        console.log(chunk.text);
     }
 
     return generatedText;

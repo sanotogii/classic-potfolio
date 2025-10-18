@@ -1,25 +1,25 @@
-import Link from 'next/link'
-import { ModeToggle } from './theme-toggle'
+import Link from "next/link";
+import { ModeToggle } from "./theme-toggle";
 
 export default function Header() {
   return (
-    <header className='fixed inset-x-0 top-0 z-50 bg-background/75 py-6 backdrop-blur-sm'>
-      <nav className='flex max-w-3xl mx-auto items-center justify-between'>
+    <header className="fixed inset-x-0 top-0 z-50 bg-background/75 py-6 backdrop-blur-sm">
+      <nav className="flex max-w-[792px] mx-auto items-center justify-between">
         <div>
-          <Link href='/' className='font-serif text-2xl font-bold'>
+          <Link href="/" className="font-serif text-2xl font-bold">
             Khalid Lazrag
           </Link>
         </div>
 
-        <ul className='flex items-center gap-6 text-sm font-light text-muted-foreground sm:gap-10'>
-          <li className='transition-colors hover:text-foreground'>
-            <Link href='/posts'>Posts</Link>
+        <ul className="flex items-center gap-6 text-sm font-light text-muted-foreground sm:gap-10">
+          <li className="transition-colors hover:text-foreground">
+            <Link href="/posts">Posts</Link>
           </li>
-          <li className='transition-colors hover:text-foreground'>
-            <Link href='/projects'>Projects</Link>
+          <li className="transition-colors hover:text-foreground">
+            <Link href="/projects">Projects</Link>
           </li>
-          <li className='transition-colors hover:text-foreground'>
-            <Link href='/contact'>Contact</Link>
+          <li className="transition-colors hover:text-foreground">
+            <Link href="/contact">Contact</Link>
           </li>
         </ul>
 
@@ -28,5 +28,5 @@ export default function Header() {
         </div>
       </nav>
     </header>
-  )
+  );
 }

@@ -12,9 +12,9 @@ const inter = Inter({
 });
 
 const playfair = Playfair_Display({
-  subsets: ['latin'],
-  variable: '--font-serif'
-})
+  subsets: ["latin"],
+  variable: "--font-serif",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -28,12 +28,12 @@ export default function RootLayout({
 }>) {
   return (
     // kanzid suppressHydrationWarning bax n7ayd hydration error
-    <html lang="en" suppressHydrationWarning> 
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          'flex min-h-screen flex-col font-sans antialiased max-w-3xl mx-auto px-4',
+          "flex min-h-screen flex-col font-sans antialiased max-w-[792px] mx-auto px-4 ",
           inter.variable,
-          playfair.variable
+          playfair.variable,
         )}
       >
         <ThemeProvider
@@ -43,7 +43,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Header />
-          <main className='grow pt-28'>{children}</main>
+          <main className="grow pt-28">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

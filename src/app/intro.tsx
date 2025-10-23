@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion } from "motion/react";
 import { MapPin } from "lucide-react";
 import Image from "next/image";
@@ -51,6 +51,23 @@ import {
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 
 const Intro = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   return (
     <div className="flex flex-col">
       <div className="flex flex-col md:flex-row items-center md:items-start md:space-x-8">
@@ -83,30 +100,45 @@ const Intro = () => {
             </div>
 
             <p className="pt-4">
-              {/* <Highlighter action="underline" color="#d4d27b"> */}
-              <strong>Computer Science </strong>
-              {/* </Highlighter>{" "} */}
-              graduate and a{" "}
-              {/* <Highlighter action="highlight" color="#87CEFA"> */}
-              software developer
-              {/* </Highlighter>{" "} */}
-              from Morocco, doing the mixture of frontend and backend
-              development.
+              a <strong>computer science</strong> graduate from Tangier who
+              enjoys building things that live on the web. I work across
+              frontend and backend.
             </p>
             <p className="font-stretch-50% pt-2">
-              currently diving into docker/ai and self hosting
+              lately, I’ve been exploring Docker, AI, and self-hosting.
             </p>
           </div>
           {/*---------------------------------------------------------------------------*/}
           <div className="flex  space-x-3 pt-7.5 ">
-            <a href="https://fra.cloud.appwrite.io/v1/storage/buckets/68bc2a32000c2a6b6535/files/68bc2aba00227edc73a9/download?project=68a9b63a00088e6597de&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbklkIjoiNjhiYzJiNGIwNDliYWJlNWQ1NGMiLCJyZXNvdXJjZUlkIjoiNjhiYzJhMzIwMDBjMmE2YjY1MzU6NjhiYzJhYmEwMDIyN2VkYzczYTkiLCJyZXNvdXJjZVR5cGUiOiJmaWxlcyIsInJlc291cmNlSW50ZXJuYWxJZCI6IjM3MjY1OjEiLCJpYXQiOjE3NjAyOTk0NTN9.5YFOC1m93vNaeBRwwQe_a1A9KZr8uDZZ2KL9yI2xMfA">
+            <div ref={dropdownRef} className="relative">
               <Button
-                className="max-w-[8rem] h-8 active:bg-gray-200"
+                onClick={() => setIsOpen(!isOpen)}
+                className="max-w-[8rem] h-8 gap-1.5"
                 variant="outline"
               >
-                <FaRegFileAlt /> Download CV{" "}
+                <FaRegFileAlt /> Download CV
               </Button>
-            </a>
+              {isOpen && (
+                <div className="absolute left-0 mt-2 w-36 bg-background rounded-lg shadow-lg border border-border z-50">
+                  <a
+                    href="https://fra.cloud.appwrite.io/v1/storage/buckets/68bc2a32000c2a6b6535/files/68bc2aba00227edc73a9/download?project=68a9b63a00088e6597de&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbklkIjoiNjhiYzJiNGIwNDliYWJlNWQ1NGMiLCJyZXNvdXJjZUlkIjoiNjhiYzJhMzIwMDBjMmE2YjY1MzU6NjhiYzJhYmEwMDIyN2VkYzczYTkiLCJyZXNvdXJjZVR5cGUiOiJmaWxlcyIsInJlc291cmNlSW50ZXJuYWxJZCI6IjM3MjY1OjEiLCJpYXQiOjE3NjAyOTk0NTN9.5YFOC1m93vNaeBRwwQe_a1A9KZr8uDZZ2KL9yI2xMfA"
+                    download
+                    onClick={() => setIsOpen(false)}
+                    className="block text-sm py-2 px-3 hover:bg-accent rounded-t-lg transition-colors"
+                  >
+                    🇬🇧 English
+                  </a>
+                  <a
+                    href="https://fra.cloud.appwrite.io/v1/storage/buckets/68bc2a32000c2a6b6535/files/68bc2aba00227edc73a9/download?project=68a9b63a00088e6597de&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbklkIjoiNjhiYzJiNGIwNDliYWJlNWQ1NGMiLCJyZXNvdXJjZUlkIjoiNjhiYzJhMzIwMDBjMmE2YjY1MzU6NjhiYzJhYmEwMDIyN2VkYzczYTkiLCJyZXNvdXJjZVR5cGUiOiJmaWxlcyIsInJlc291cmNlSW50ZXJuYWxJZCI6IjM3MjY1OjEiLCJpYXQiOjE3NjAyOTk0NTN9.5YFOC1m93vNaeBRwwQe_a1A9KZr8uDZZ2KL9yI2xMfA"
+                    download
+                    onClick={() => setIsOpen(false)}
+                    className="block text-sm py-2 px-3 hover:bg-accent rounded-b-lg transition-colors"
+                  >
+                    🇫🇷 French
+                  </a>
+                </div>
+              )}
+            </div>
 
             <a
               className="active:text-gray-400 hover:text-gray-900"
@@ -171,8 +203,20 @@ const Intro = () => {
                           monthly sales and analytics
                         </li>
                         <li>
+                          Implemented data visualization charts to help clients
+                          understand their sales trends at a glance
+                        </li>
+                        <li>
                           Created a desktop invoicing application using
-                          Electron.js and React
+                          Electron.js and React with PDF generation capabilities
+                        </li>
+                        <li>
+                          Designed responsive UIs with Tailwind CSS that work
+                          seamlessly across different screen sizes
+                        </li>
+                        <li>
+                          Worked directly with clients to gather requirements
+                          and deliver custom solutions that fit their workflow
                         </li>
                       </ul>
                     </div>
@@ -215,13 +259,24 @@ const Intro = () => {
                       <ul className="mt-3 list-inside list-disc space-y-1 text-xs sm:text-sm">
                         <li>
                           Built a solid base in software development principles
+                          and object-oriented programming
                         </li>
                         <li>
-                          Learned how to design and manage database systems
+                          Learned how to design and manage database systems (SQL
+                          and NoSQL)
                         </li>
                         <li>
                           Picked up the essentials of computer networks and how
                           they connect stuff
+                        </li>
+                        <li>Studied algorithms, data structures</li>
+                        <li>
+                          Got familiar with web development, both frontend and
+                          backend basics
+                        </li>
+                        <li>
+                          Completed my graduation project on AI-powered resume
+                          optimization for ATS
                         </li>
                       </ul>
                     </div>
@@ -261,6 +316,18 @@ const Intro = () => {
                           Shifted more focus toward backend engineering as
                           projects grew
                         </li>
+                        <li>
+                          Worked with Python, Flask, JavaScript, and React on
+                          real-world projects
+                        </li>
+                        <li>
+                          Built collaborative projects with peers from across
+                          Africa
+                        </li>
+                        <li>
+                          Completed a capstone password manager project with
+                          zero-knowledge encryption
+                        </li>
                       </ul>
                     </div>
                   </div>
@@ -271,7 +338,6 @@ const Intro = () => {
         </Tabs>
 
         {/*--------------------------------------------------------------------------*/}
-
       </div>
     </div>
   );

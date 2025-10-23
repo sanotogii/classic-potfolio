@@ -78,7 +78,7 @@ export default function PostPage({
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
-        <div className="text-gray-500">Loading post...</div>
+        <div >Loading post...</div>
       </div>
     );
   }
@@ -112,7 +112,7 @@ export default function PostPage({
       <h1 className="font-bold text-5xl font-serif mt-6 mb-6">{post.title}</h1>
 
       <hr />
-      <div className="flex items-center justify-between text-sm text-gray-500 pt-2 pb-2">
+      <div className="flex items-center justify-between text-sm pt-2 pb-2">
         <div className="flex items-center space-x-2">
           <FaEye size={20} />
           <p className="font-light">{post.views} views 4 min read</p>

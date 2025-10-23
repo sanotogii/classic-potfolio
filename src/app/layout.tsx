@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { cn } from "@/lib/utils";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { Toaster } from "sonner";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -33,7 +34,7 @@ export default function RootLayout({
         className={cn(
           "flex min-h-screen flex-col font-sans antialiased max-w-[792px] mx-auto px-4 ",
           inter.variable,
-          playfair.variable,
+          playfair.variable
         )}
       >
         <ThemeProvider
@@ -45,6 +46,7 @@ export default function RootLayout({
           <Header />
           <main className="grow pt-28">{children}</main>
           <Footer />
+          <Toaster richColors />
         </ThemeProvider>
       </body>
     </html>

@@ -30,7 +30,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
       <CardHeader className="pb-3">
         <div className="flex items-start justify-between">
           <div className="flex-1">
-            <CardTitle className="text-xl font-serif font-bold md:text-2xl mb-2 text-[#3d3929] dark:text-[#c3c0b6]">
+            <CardTitle className="text-xl font-serif font-bold md:text-2xl mb-2 text-[#575279] dark:text-[#c3c0b6]">
               {project.title}
             </CardTitle>
             <CardDescription className="text-sm mb-0 text-[#3d3929] dark:text-[#c3c0b6]">
@@ -95,7 +95,7 @@ const Projects = () => {
   return (
     <div className="mt-8 mb-20">
       <div>
-        <h1 className="font-serif font-bold text-2xl mb-8">Recent projects</h1>
+        <h1 className="font-serif font-bold text-2xl mb-8 text-[#575279] dark:text-[#c3c0b6]">Recent projects</h1>
       </div>
       <div className="">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

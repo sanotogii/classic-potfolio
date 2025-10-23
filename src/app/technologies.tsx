@@ -25,7 +25,7 @@ import {
 const Technologies = () => {
   return (
     <div className="mt-12">
-      <h1 className="text-2xl pb-6 font-serif font-bold">Technologies</h1>
+      <h1 className="text-2xl pb-6 font-serif font-bold text-[#575279] dark:text-[#c3c0b6]">Technologies</h1>
 
       {/* Frontend Section */}
       <div className="mb-8">

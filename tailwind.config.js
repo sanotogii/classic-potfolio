@@ -9,9 +9,13 @@ export default {
     container: {
       center: true,
       padding: "2rem",
-      screens: { "2xl": "1400px" }
+      screens: { "2xl": "1400px" },
     },
     extend: {},
   },
-  plugins: ["@tailwindcss/typography"],
-}
+  plugins: ["@tailwindcss/typography", require("daisyui")],
+  daisyui: {
+    themes: false,
+    base: false,
+  },
+};

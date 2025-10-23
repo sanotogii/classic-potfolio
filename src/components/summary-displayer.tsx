@@ -51,8 +51,8 @@ const SummaryDisplay = () => {
     <div className="summary-section my-6 rounded-2xl">
       <div className="relative w-full overflow-hidden rounded-2xl">
         {/* <ShineBorder borderWidth={2} duration={35} shineColor={["#A07CFE", "#FE8FB5", "#FFBE7B"]}  /> */}
-        <div className="bg-gray-50 dark:bg-gray-800  dark:border-gray-700 p-6">
-          <h3 className="font-serif font-bold mb-4">✨ AI Summary</h3>
+        <div className="bg-gray-50 dark:bg-[#262624]  dark:border-gray-700 p-6">
+          <h3 className="font-serif font-bold text-2xl mb-4">AI Summary</h3>
           <div className="text-sm prose prose-sm dark:prose-invert max-w-none markdown-content">
             {serializedContent && (
               <MDXRemote
@@ -70,14 +70,14 @@ const SummaryDisplay = () => {
           duration={6}
           size={400}
           borderWidth={2}
-          className="from-transparent via-red-500 to-transparent"
+          className="from-transparent via-[#c96442] to-transparent"
         />
         <BorderBeam
           duration={6}
           delay={3}
           size={400}
           borderWidth={2}
-          className="from-transparent via-blue-500 to-transparent"
+          className="from-transparent via-[#ded8c4] to-transparent"
         />
       </div>
     </div>

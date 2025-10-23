@@ -35,7 +35,7 @@
 }
 
 .dark .markdown-content h1 {
-  color: rgb(255 255 255);
+  color: #c3c0b6;
 }
 
 .markdown-content h2 {
@@ -50,7 +50,7 @@
 }
 
 .dark .markdown-content h2 {
-  color: rgb(255 255 255);
+  color: #c3c0b6;
   border-bottom-color: rgb(75 85 99);
 }
 
@@ -64,18 +64,27 @@
 }
 
 .dark .markdown-content h3 {
-  color: rgb(255 255 255);
+  color: #c3c0b6;
 }
 
 .markdown-content p {
+  color: #3d3929;
   margin-bottom: 1rem;
   line-height: 1.75;
 }
 
+.dark .markdown-content p {
+  color: #c3c0b6;
+}
+
 .markdown-content ul {
+  color: #3d3929;
   list-style-type: disc;
   margin-bottom: 1rem;
   padding-left: 1.5rem;
+}
+.dark .markdown-content ul {
+  color: #c3c0b6;
 }
 
 .markdown-content ol {

@@ -2,10 +2,12 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ExternalLink } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
 import { getProjectBySlug, Project } from "@/lib/projects-data";
 import { notFound } from "next/navigation";
+import { HeroVideoDialog } from "@/components/ui/hero-video-dialog";
 
 export default function ProjectDetailPage({
   params,
@@ -43,10 +45,7 @@ export default function ProjectDetailPage({
 
   return (
     <>
-      <Link
-        className="text-gray-500 text-sm mb-4 hover:text-gray-700 dark:hover:text-gray-300 inline-block"
-        href={"/projects"}
-      >
+      <Link className=" text-sm mb-4  inline-block" href={"/projects"}>
         ← Back to projects
       </Link>
 
@@ -87,11 +86,21 @@ export default function ProjectDetailPage({
         <hr className="my-6" />
 
         <div className="space-y-8">
+          {/* General Description / Idea */}
+          <div>
+            {project.fullDescription.map((paragraph, index) => (
+              <p
+                key={index}
+                className="text-neutral-700 dark:text-neutral-300 leading-relaxed mb-4"
+              >
+                {paragraph}
+              </p>
+            ))}
+          </div>
+
           {/* Tech Stack Section */}
           <div>
-            <h2 className="text-2xl font-semibold text-neutral-900 dark:text-white mb-4">
-              Built with:
-            </h2>
+            <h2 className="text-2xl font-semibold mb-4">Built with:</h2>
             <div className="flex flex-wrap gap-4">
               {project.techStack.map((tech) => {
                 const Icon = tech.icon;
@@ -113,23 +122,52 @@ export default function ProjectDetailPage({
             </div>
           </div>
 
-          {/* Full Description */}
-          <div>
-            {project.fullDescription.map((paragraph, index) => (
-              <p
-                key={index}
-                className="text-neutral-700 dark:text-neutral-300 leading-relaxed mb-4"
-              >
-                {paragraph}
-              </p>
-            ))}
-          </div>
+          {/* Demo Section */}
+          {(project.videoUrl ||
+            (project.images && project.images.length > 0)) && (
+            <div>
+              <h2 className="text-2xl font-semibold mb-4">Demo:</h2>
+
+              {/* Video Section - if video exists */}
+              {project.videoUrl && (
+                <div className="mb-6 w-full max-w-3xl">
+                  <HeroVideoDialog
+                    videoSrc={project.videoUrl}
+                    thumbnailSrc={`https://img.youtube.com/vi/${
+                      project.videoUrl.split("/").pop()?.split("?")[0]
+                    }/maxresdefault.jpg`}
+                    thumbnailAlt={`${project.title} demo video`}
+                    animationStyle="from-center"
+                  />
+                </div>
+              )}
+
+              {/* Images Section - if images exist */}
+              {project.images && project.images.length > 0 && (
+                <div className="space-y-6">
+                  {project.images.map((image, index) => (
+                    <div key={index} className="space-y-3">
+                      <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed">
+                        {image.caption}
+                      </p>
+                      <div className="relative w-full aspect-video rounded-lg overflow-hidden border border-neutral-200 dark:border-neutral-800">
+                        <Image
+                          src={image.src}
+                          alt={`${project.title} screenshot ${index + 1}`}
+                          fill
+                          className="object-cover hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
 
           {/* Features Section */}
           <div>
-            <h2 className="text-2xl font-semibold text-neutral-900 dark:text-white mb-4">
-              What it does:
-            </h2>
+            <h2 className="text-2xl font-semibold mb-4">Features:</h2>
             <ul className="space-y-3">
               {project.features.map((feature, index) => (
                 <li
@@ -143,34 +181,44 @@ export default function ProjectDetailPage({
             </ul>
           </div>
 
-          {/* Team Section */}
-          {project.team && project.team.length > 0 && (
-            <div className="pt-6 border-t border-neutral-200 dark:border-neutral-800">
-              <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                Built with{" "}
-                {project.team.map((member, index, array) => (
-                  <React.Fragment key={member.name}>
-                    <a
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline hover:text-neutral-900 dark:hover:text-neutral-300"
-                    >
-                      {member.name}
-                    </a>
-                    {index < array.length - 1 && ", "}
-                  </React.Fragment>
-                ))}
-              </p>
-            </div>
-          )}
+          {/* Conclusion Section */}
+          {(project.conclusion ||
+            (project.team && project.team.length > 0) ||
+            project.note) && (
+            <div className="pt-6 border-t border-neutral-200 dark:border-neutral-800 space-y-4">
+              {project.conclusion && (
+                <div>
+                  <h2 className="text-2xl font-semibold mb-4">Wrapping up:</h2>
+                  <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed">
+                    {project.conclusion}
+                  </p>
+                </div>
+              )}
 
-          {/* Note Section */}
-          {project.note && (
-            <div className="pt-6 border-t border-neutral-200 dark:border-neutral-800">
-              <p className="text-sm text-neutral-600 dark:text-neutral-400 italic">
-                {project.note}
-              </p>
+              {project.team && project.team.length > 0 && (
+                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                  Built with{" "}
+                  {project.team.map((member, index, array) => (
+                    <React.Fragment key={member.name}>
+                      <a
+                        href={member.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="underline hover:text-neutral-900 dark:hover:text-neutral-300"
+                      >
+                        {member.name}
+                      </a>
+                      {index < array.length - 1 && ", "}
+                    </React.Fragment>
+                  ))}
+                </p>
+              )}
+
+              {project.note && (
+                <p className="text-sm text-neutral-600 dark:text-neutral-400 italic">
+                  {project.note}
+                </p>
+              )}
             </div>
           )}
         </div>

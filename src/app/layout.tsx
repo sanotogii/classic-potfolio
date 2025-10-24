@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import { Toaster } from "sonner";
+import Script from "next/script";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -31,6 +32,7 @@ export default function RootLayout({
   return (
     // kanzid suppressHydrationWarning bax n7ayd hydration error
     <html lang="en" suppressHydrationWarning>
+      <head></head>
       <body
         className={cn(
           "flex min-h-screen flex-col font-sans antialiased max-w-[792px] mx-auto px-4 ",
@@ -38,6 +40,24 @@ export default function RootLayout({
           playfair.variable
         )}
       >
+        {/* Google Analytics */}
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-H6NNYLJNJW"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-H6NNYLJNJW');
+            `,
+          }}
+        />
+
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

@@ -32,14 +32,7 @@ export default function RootLayout({
   return (
     // kanzid suppressHydrationWarning bax n7ayd hydration error
     <html lang="en" suppressHydrationWarning>
-      <head></head>
-      <body
-        className={cn(
-          "flex min-h-screen flex-col font-sans antialiased max-w-[792px] mx-auto px-4 ",
-          inter.variable,
-          playfair.variable
-        )}
-      >
+      <head>
         {/* Google Analytics */}
         <Script
           strategy="afterInteractive"
@@ -60,11 +53,18 @@ export default function RootLayout({
 
         {/* Umami Analytics */}
         <Script
-          defer
+          strategy="lazyOnload"
           src="https://cloud.umami.is/script.js"
           data-website-id="9b7b8a5e-b540-4344-853b-545673cb6f0e"
         />
-
+      </head>
+      <body
+        className={cn(
+          "flex min-h-screen flex-col font-sans antialiased max-w-[792px] mx-auto px-4 ",
+          inter.variable,
+          playfair.variable
+        )}
+      >
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

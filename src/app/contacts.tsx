@@ -134,13 +134,13 @@ const Contacts = () => {
                   Sending...
                 </span>
               ) : (
-                "Contact Us"
+                "Send"
               )}
             </Button>
 
             {/* Privacy Policy Text */}
             <p className="text-sm text-neutral-500 dark:text-neutral-400">
-              By submitting this, you agree on {" "}
+              By submitting this, you agree on{" "}
               <Link
                 href="/privacy"
                 className="underline cursor-pointer hover:text-neutral-700 dark:hover:text-neutral-300"

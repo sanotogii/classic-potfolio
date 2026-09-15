@@ -6,6 +6,7 @@ import Image from "next/image";
 import profilePic from "../images/profile.png";
 import logoUni from "../../public/logo-uni.png";
 import alxLogo from "../../public/alxLogo.png";
+import FPL from "../../public/FPL.png";
 // import { Highlighter } from "@/components/magicui/highlighter";
 // import {
 //   Select,
@@ -102,12 +103,12 @@ const Intro = () => {
             </div>
 
             <p className="pt-4">
-              a <strong>computer science</strong> graduate from Tangier who
-              enjoys building things that live on the web. I work across
-              frontend and backend.
+              a <strong>DevOps & Cloud</strong> master's student from Tangier
+              who enjoys building things that live on the web. who likes
+              homelabbing
             </p>
             <p className="font-stretch-50% pt-2">
-              lately, I’ve been exploring Docker, AI, and self-hosting.
+              lately, I’ve been exploring Kubernetes, AI, and self-hosting.
             </p>
           </div>
           {/*---------------------------------------------------------------------------*/}
@@ -165,20 +166,15 @@ const Intro = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <SiGmail
-                size={30}
-                className="icons-style"
-              />
+              <SiGmail size={30} className="icons-style" />
             </a>
 
-            <a href="https://www.chess.com/member/khaled_py"
+            <a
+              href="https://www.chess.com/member/khaled_py"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <SiChessdotcom
-                size={30}
-                className="icons-style"
-              />
+              <SiChessdotcom size={30} className="icons-style" />
             </a>
 
             {/*<FaYoutube />
@@ -257,6 +253,55 @@ const Intro = () => {
             >
               <div className="border rounded-lg p-4 sm:p-6">
                 <div className="relative ml-4 sm:ml-6 border-l border-gray-200 dark:border-gray-700">
+                  <div className="relative pb-10">
+                    <span className="absolute -left-5 sm:-left-6 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900">
+                      <Image
+                        src={FPL}
+                        alt="University Logo"
+                        width={32}
+                        height={32}
+                        className="rounded-full object-cover sm:w-9 sm:h-9"
+                      />
+                    </span>
+                    <div className="pl-4 sm:pl-6">
+                      <h2 className="pl-2 sm:pl-3 text-lg sm:text-xl font-bold">
+                        <a
+                          href="https://fpl.ac.ma/site/"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="hover:underline"
+                        >
+                          FPL - La Faculté Polydisciplinaire de Larache
+                        </a>
+                      </h2>
+                      <div className="flex flex-col gap-1 md:flex-row md:items-center md:justify-between">
+                        <h3 className="pl-2 text-sm sm:text-base font-medium">
+                          Master&apos;s in DevOps and Cloud Computing
+                        </h3>
+                        <span className="pl-2 text-xs sm:text-sm">
+                          2025 - Present
+                        </span>
+                      </div>
+                      <ul className="mt-3 list-inside list-disc space-y-1 text-xs sm:text-sm">
+                        <li>
+                          Exploring cloud infrastructure, deployment strategies,
+                          and modern DevOps practices
+                        </li>
+                        <li>
+                          Building hands-on experience with Kubernetes,
+                          containerization, and CI/CD pipelines
+                        </li>
+                        <li>
+                          Learning how to automate software delivery and manage
+                          scalable, reliable systems
+                        </li>
+                        <li>
+                          Developing practical skills in self-hosting,
+                          monitoring, and cloud-native technologies
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                   <div className="relative pb-10 last:pb-0">
                     <span className="absolute -left-5 sm:-left-6 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900">
                       <Image

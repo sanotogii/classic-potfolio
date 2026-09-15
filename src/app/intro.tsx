@@ -25,6 +25,8 @@ import {
   FaPython,
   FaJava,
 } from "react-icons/fa";
+import { SiGmail } from "react-icons/si";
+import { SiChessdotcom } from "react-icons/si";
 import {
   SiNextdotjs,
   SiTailwindcss,
@@ -121,7 +123,7 @@ const Intro = () => {
               {isOpen && (
                 <div className="absolute left-0 mt-2 w-36 bg-background rounded-lg shadow-lg border border-border z-50">
                   <a
-                    href="https://fra.cloud.appwrite.io/v1/storage/buckets/68bc2a32000c2a6b6535/files/68bc2aba00227edc73a9/download?project=68a9b63a00088e6597de&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbklkIjoiNjhiYzJiNGIwNDliYWJlNWQ1NGMiLCJyZXNvdXJjZUlkIjoiNjhiYzJhMzIwMDBjMmE2YjY1MzU6NjhiYzJhYmEwMDIyN2VkYzczYTkiLCJyZXNvdXJjZVR5cGUiOiJmaWxlcyIsInJlc291cmNlSW50ZXJuYWxJZCI6IjM3MjY1OjEiLCJpYXQiOjE3NjAyOTk0NTN9.5YFOC1m93vNaeBRwwQe_a1A9KZr8uDZZ2KL9yI2xMfA"
+                    href="https://fra.cloud.appwrite.io/v1/storage/buckets/68bc2a32000c2a6b6535/files/English/download?project=68a9b63a00088e6597de"
                     download
                     onClick={() => setIsOpen(false)}
                     className="block text-sm py-2 px-3 hover:bg-accent rounded-t-lg transition-colors"
@@ -141,7 +143,7 @@ const Intro = () => {
             </div>
 
             <a
-              className="active:text-gray-400 hover:text-gray-900"
+              className="icons-style"
               href="https://github.com/sanotogii"
               target="_blank"
               rel="noopener noreferrer"
@@ -150,12 +152,33 @@ const Intro = () => {
             </a>
 
             <a
-              className="active:text-gray-400 hover:text-gray-900"
+              className="icons-style"
               href="https://www.linkedin.com/in/khalid-lazrag-91305423a/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <FaLinkedin size={30} />
+            </a>
+
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=khalidlazrag.contact@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <SiGmail
+                size={30}
+                className="icons-style"
+              />
+            </a>
+
+            <a href="https://www.chess.com/member/khaled_py"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <SiChessdotcom
+                size={30}
+                className="icons-style"
+              />
             </a>
 
             {/*<FaYoutube />

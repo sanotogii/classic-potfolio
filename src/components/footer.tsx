@@ -1,4 +1,5 @@
 import { JSX, SVGProps } from 'react'
+import { SiGmail } from 'react-icons/si'
 
 const navigation = [
   // {
@@ -60,6 +61,16 @@ const navigation = [
         />
       </svg>
     )
+  }, 
+  {
+    name: 'Gmail',
+    href: 'https://mail.google.com/mail/?view=cm&fs=1&to=khalidlazrag.contact@gmail.com',
+    icon: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
+                    <SiGmail
+                      size={19}
+                      className="icons-style"
+                    />
+     )
   }
   // ,
   // {

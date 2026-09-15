@@ -14,9 +14,9 @@ const aj = arcjet({
     tokenBucket({
       mode: "LIVE",
       characteristics: ["ip.src"],
-      refillRate: 30,
+      refillRate: 60,
       interval: "60s",
-      capacity: 30,
+      capacity: 60,
     }),
   ],
 });

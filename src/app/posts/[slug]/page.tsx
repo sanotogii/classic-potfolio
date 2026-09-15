@@ -101,11 +101,8 @@ export default function PostPage({
 
   return (
     <>
-      <Link
-        className="text-gray-500 text-sm mb-4 hover:text-gray-700"
-        href={"/posts"}
-      >
-        ← Back to posts
+      <Link className=" text-sm mb-4 inline-block hover:text-[#999790] active:text-[#807e77]" href={"/posts"}>
+        ← Back to projects
       </Link>
 
       {/* <hr className="mt-6" /> */}

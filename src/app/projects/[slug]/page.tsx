@@ -45,7 +45,7 @@ export default function ProjectDetailPage({
 
   return (
     <>
-      <Link className=" text-sm mb-4  inline-block" href={"/projects"}>
+      <Link className=" text-sm mb-4  inline-block hover:text-[#999790] active:text-[#807e77]" href={"/projects"}>
         ← Back to projects
       </Link>
 

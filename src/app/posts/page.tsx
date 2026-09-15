@@ -9,7 +9,6 @@ export default async function PostsPage() {
 
   // if (!res.ok) throw new Error('Failed to fetch posts');
   const data = await res.json();
-  console.log("Fetched posts:", data);
 
   // Make sure we're passing an array to AnimatedPostsList
   const posts = Array.isArray(data) ? data : [];

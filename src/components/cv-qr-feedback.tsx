@@ -144,7 +144,7 @@ export function CvQrFeedback() {
               How was the QR code?
             </h2>
             <p className="mt-1 text-sm text-[#3d3929] dark:text-[#c3c0b6]">
-              You scanned the QR code on my CV. Was it a good idea?
+              Ahlan!! bima anak jiti mn CV kif jatk lfikra?
             </p>
 
             <div className="mt-4 flex gap-1">

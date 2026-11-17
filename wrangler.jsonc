@@ -1,0 +1,16 @@
+{
+  "name": "classic-potfolio",
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": ".open-next/worker.js",
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "routes": [
+    {
+      "pattern": "portfolio.khalidlab.tech",
+      "custom_domain": true
+    }
+  ]
+}

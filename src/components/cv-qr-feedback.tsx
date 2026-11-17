@@ -25,8 +25,7 @@ export function CvQrFeedback() {
     if (params.get("from")?.toLowerCase() !== "qrcode") return;
     if (localStorage.getItem(STORAGE_KEY)) return;
 
-    const timer = setTimeout(() => setVisible(true), 8000);
-    return () => clearTimeout(timer);
+    setVisible(true);
   }, []);
 
   const send = useCallback((payload: Record<string, unknown>) => {

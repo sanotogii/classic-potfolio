@@ -234,7 +234,7 @@
     @apply text-[#494431] active:text-gray-400 hover:text-gray-600
   }
   .dark .icons-style {
-    @apply hover:text-[#999790] active:text-[#807e77]
+    @apply text-[#c3c0b6] hover:text-[#999790] active:text-[#807e77]
   }
 
   .onHover-style {

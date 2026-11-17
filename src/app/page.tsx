@@ -1,6 +1,7 @@
 import Intro from "./intro";
 import Technologies from "./technologies";
 import Projects from "./projects";
+import Certifications from "./certifications";
 import Contacts from "./contacts";
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
       <Intro />
       <Technologies />
       <Projects />
+      <Certifications />
       <Contacts />
     </div>
   );

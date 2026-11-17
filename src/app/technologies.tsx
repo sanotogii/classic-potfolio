@@ -1,5 +1,5 @@
 import React from "react";
-import { FaReact, FaDocker, FaJava } from "react-icons/fa";
+import { FaReact, FaDocker, FaJava, FaAws } from "react-icons/fa";
 import {
   SiNextdotjs,
   SiTailwindcss,
@@ -20,6 +20,14 @@ import {
   SiFramer,
   SiShadcnui,
   SiReactquery,
+  SiKubernetes,
+  SiTerraform,
+  SiAnsible,
+  SiNginx,
+  SiLinux,
+  SiGitlab,
+  SiJenkins,
+  SiGooglecloud,
 } from "react-icons/si";
 
 const Technologies = () => {
@@ -168,6 +176,84 @@ const Technologies = () => {
           </div>
         </div>
 
+        {/* DevOps & Cloud Section */}
+        <div className="mb-8 mt-6">
+          <h2 className="text-lg font-semibold mb-4">
+            DevOps & Cloud
+          </h2>
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+            <div className="relative group cursor-pointer">
+              <SiKubernetes className="text-3xl sm:text-4xl group-hover:text-[#326CE5] transition-colors" />
+              <span className="onHover-style">
+                Kubernetes
+              </span>
+            </div>
+
+            <div className="relative group cursor-pointer">
+              <FaDocker className="text-3xl sm:text-4xl group-hover:text-[#2496ED] transition-colors" />
+              <span className="onHover-style">
+                Docker
+              </span>
+            </div>
+
+            <div className="relative group cursor-pointer">
+              <SiJenkins className="text-3xl sm:text-4xl group-hover:text-[#D24939] transition-colors" />
+              <span className="onHover-style">
+                Jenkins
+              </span>
+            </div>
+
+            <div className="relative group cursor-pointer">
+              <SiGitlab className="text-3xl sm:text-4xl group-hover:text-[#FC6D26] transition-colors" />
+              <span className="onHover-style">
+                GitLab CI
+              </span>
+            </div>
+
+            <div className="relative group cursor-pointer">
+              <SiTerraform className="text-3xl sm:text-4xl group-hover:text-[#7B42BC] transition-colors" />
+              <span className="onHover-style">
+                Terraform
+              </span>
+            </div>
+
+            <div className="relative group cursor-pointer">
+              <SiAnsible className="text-3xl sm:text-4xl group-hover:text-[#EE0000] transition-colors" />
+              <span className="onHover-style">
+                Ansible
+              </span>
+            </div>
+
+            <div className="relative group cursor-pointer">
+              <SiNginx className="text-3xl sm:text-4xl group-hover:text-[#009639] transition-colors" />
+              <span className="onHover-style">
+                Nginx
+              </span>
+            </div>
+
+            <div className="relative group cursor-pointer">
+              <SiLinux className="text-3xl sm:text-4xl group-hover:text-[#FCC624] transition-colors" />
+              <span className="onHover-style">
+                Linux
+              </span>
+            </div>
+
+            <div className="relative group cursor-pointer">
+              <FaAws className="text-3xl sm:text-4xl group-hover:text-[#FF9900] transition-colors" />
+              <span className="onHover-style">
+                AWS
+              </span>
+            </div>
+
+            <div className="relative group cursor-pointer">
+              <SiGooglecloud className="text-3xl sm:text-4xl group-hover:text-[#4285F4] transition-colors" />
+              <span className="onHover-style">
+                Google Cloud
+              </span>
+            </div>
+          </div>
+        </div>
+
         {/* AI & Tools Section */}
         <div className="mb-8 mt-6">
           <h2 className="text-lg font-semibold mb-4">
@@ -185,13 +271,6 @@ const Technologies = () => {
               <SiStreamlit className="text-3xl sm:text-4xl group-hover:text-[#FF4B4B] transition-colors" />
               <span className="onHover-style">
                 Streamlit
-              </span>
-            </div>
-
-            <div className="relative group cursor-pointer">
-              <FaDocker className="text-3xl sm:text-4xl group-hover:text-[#2496ED] transition-colors" />
-              <span className="onHover-style">
-                Docker
               </span>
             </div>
 

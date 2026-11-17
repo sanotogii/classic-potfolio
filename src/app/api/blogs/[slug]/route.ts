@@ -1,13 +1,14 @@
 import { NextResponse } from "next/server";
-import { tables } from "@/lib/appwrite/appwrite";
+import { getTables } from "@/lib/appwrite/appwrite";
 import { Query } from "node-appwrite";
 
 export async function GET(
   request: Request,
   { params }: { params: Promise<{ slug: string }> }
 ) {
-  try {
-    const { slug } = await params;
+    try {
+        const tables = getTables();
+        const { slug } = await params;
     console.log("Fetching blog with slug:", slug);
 
     const response = await tables.listRows(

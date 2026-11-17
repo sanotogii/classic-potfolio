@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { tables} from "@/lib/appwrite/appwrite";
+import { getTables } from "@/lib/appwrite/appwrite";
 import { ID } from "node-appwrite";
 
 export type blog = {
@@ -15,6 +15,7 @@ export type blog = {
 export async function GET(request: NextRequest) {
 
     try {
+        const tables = getTables();
         const response = await tables.listRows(process.env.APPWRITE_DATABASE_ID!, process.env.APPWRITE_TABLE_ID!);
         console.log('Fetched blogs:', response);
         return NextResponse.json(response.rows, { status: 200 });
@@ -32,6 +33,7 @@ export async function POST(request: NextRequest) {
         // if (!blog.title || !blog.content || !blog.slug) {
         //     return NextResponse.json({ error: 'Title, content, and slug are required' }, { status: 400 });
         // }
+        const tables = getTables();
         const response = await tables.createRow(
             process.env.APPWRITE_DATABASE_ID!,
             process.env.APPWRITE_TABLE_ID!,
@@ -54,6 +56,7 @@ export async function DELETE(request: NextRequest) {
         // if (!id) {
         //     return NextResponse.json({ error: 'ID is required' }, { status: 400 });
         // }
+        const tables = getTables();
         const response = await tables.deleteRow(
             process.env.APPWRITE_DATABASE_ID!,
             process.env.APPWRITE_TABLE_ID!,

@@ -7,8 +7,6 @@ import arcjet, {
 import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const aj = arcjet({
   key: process.env.ARCJET_KEY!,
   rules: [
@@ -63,7 +61,8 @@ export async function POST(request: Request) {
   }
 
   try {
-    // Send email
+    // Send email (constructed here so builds don't need the runtime key)
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const data = await resend.emails.send({
       from: "Portfolio Contact <onboarding@resend.dev>",
       to: process.env.CONTACT_EMAIL!,

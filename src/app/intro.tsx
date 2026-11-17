@@ -185,10 +185,10 @@ const Intro = () => {
 
       {/* Experience & Education Section */}
       <div className="w-full mt-8 px-2 sm:px-0">
-        <Tabs defaultValue="education" className="w-full">
+        <Tabs defaultValue="experience" className="w-full">
           <TabsList className="grid w-full grid-cols-2">
-            <TabsTrigger value="education">Education</TabsTrigger>
             <TabsTrigger value="experience">Experience</TabsTrigger>
+            <TabsTrigger value="education">Education</TabsTrigger>
           </TabsList>
 
           <TabsContent value="experience" className="mt-6">
@@ -199,6 +199,61 @@ const Intro = () => {
             >
               <div className="border rounded-lg p-4 sm:p-6">
                 <div className="relative ml-4 sm:ml-6 border-l border-gray-200 dark:border-gray-700">
+                  {/* Volunteer: Class Resource Manager & DevOps */}
+                  <div className="relative pb-10">
+                    <span className="absolute -left-5 sm:-left-6 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900">
+                      <Image
+                        src={FPL}
+                        alt="FPL Logo"
+                        width={32}
+                        height={32}
+                        className="rounded-full object-cover sm:w-9 sm:h-9"
+                      />
+                    </span>
+                    <div className="pl-4 sm:pl-6">
+                      <h2 className="pl-2 text-lg sm:text-xl font-bold">
+                        Class Resource Manager & DevOps
+                      </h2>
+                      <div className="flex flex-col gap-1 md:flex-row md:items-center md:justify-between">
+                        <h3 className="pl-2 text-sm sm:text-base font-medium">
+                          Volunteer · Master DevOps & Cloud Computing, FPL
+                        </h3>
+                        <span className="text-xs sm:text-sm">
+                          December 2025 - Present
+                        </span>
+                      </div>
+                      <ul className="mt-3 list-inside list-disc space-y-1 text-xs sm:text-sm">
+                        <li>
+                          Manage the class&apos;s shared Google Drive course
+                          resources and keep deadlines up to date on Google
+                          Calendar
+                        </li>
+                        <li>
+                          Built an AI chatbot that fetches matching course PDFs
+                          from natural-language requests, using Next.js and
+                          self-hosted n8n running on a Galaxy S8
+                        </li>
+                        <li>
+                          Run a production CI/CD pipeline on self-hosted
+                          Jenkins and SonarQube (GCP E2 VM) with a SonarQube
+                          quality gate and Semgrep security scans
+                        </li>
+                        <li>
+                          Automated deployment to Cloudflare Workers at{" "}
+                          <a
+                            href="https://notes.khalidlab.tech"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline"
+                          >
+                            notes.khalidlab.tech
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Freelance: Full-Stack Developer */}
                   <div className="relative pb-0">
                     <span className="absolute -left-5 sm:-left-6 flex h-10 w-10 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-gray-200 bg-white dark:border-gray-700 dark:bg-gray-900">
                       <span className="text-lg sm:text-xl font-bold">💼</span>

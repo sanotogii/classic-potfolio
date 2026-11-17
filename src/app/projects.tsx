@@ -99,15 +99,17 @@ const Projects = () => {
       </div>
       <div className="">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.map((project) => (
+          {projects.slice(0, 4).map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </div>
       </div>
 
-      <div className="mt-8 underline ">
-        <Link href="/projects">more projects</Link>
-      </div>
+      {projects.length > 4 && (
+        <div className="mt-8 underline ">
+          <Link href="/projects">See more</Link>
+        </div>
+      )}
     </div>
   );
 };

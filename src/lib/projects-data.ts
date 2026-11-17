@@ -16,7 +16,16 @@ import {
   SiMarkdown,
   SiC,
   SiYoutube,
+  // SiOracle,
+  SiJenkins,
+  SiSonarqubeserver,
+  // SiSemgrep,
+  SiCloudflareworkers,
+  SiN8N,
+  SiMongodb,
+  SiElectron,
 } from "react-icons/si";
+import { FaDatabase, FaShieldAlt } from "react-icons/fa";
 
 export interface Project {
   id: string;
@@ -263,6 +272,120 @@ export const projects: Project[] = [
     conclusion:
       "This project was pure fun - getting to recreate those classic FPS vibes with nothing but C code and math. It really deepened my understanding of graphics programming and made me appreciate how much was achieved with such limited resources back in the 90s!",
   },
+    {
+    id: "intervention-tracking",
+    title: "Technical Intervention Tracking",
+    period: "Jan 2026 - Feb 2026",
+    shortDescription:
+      "A low-code Oracle APEX application for managing the full lifecycle of technical interventions, from request to validation.",
+    fullDescription: [
+      "Built with Oracle APEX 24.2 on top of Oracle Database, this app centralizes how technical interventions are requested, assigned, and closed.",
+      "It uses a multi-role validation workflow so each person (Admin, Technician, Professor) only sees and does what their role allows.",
+    ],
+    features: [
+      "Centralized management of the whole intervention lifecycle",
+      "Kanban board with drag & drop to move interventions between statuses",
+      "Multi-role validation workflow (Admin, Technician, Professor)",
+      "PL/SQL business logic and REST endpoints exposed through ORDS",
+    ],
+    techStack: [
+      { name: "Oracle APEX", icon: FaDatabase, color: "#F80000" },
+      { name: "Oracle Database (PL/SQL)", icon: FaDatabase, color: "#F80000" },
+    ],
+    note: "Academic Project • Low-code",
+    conclusion:
+      "A great way to learn how far low-code can go when it's backed by solid PL/SQL and a well-designed database.",
+  },
+  {
+    id: "cicd-pipeline",
+    title: "Production CI/CD Pipeline",
+    period: "Dec 2025 - Present",
+    shortDescription:
+      "A self-hosted Jenkins + SonarQube pipeline on a GCP VM with quality and security gates, deploying automatically to Cloudflare Workers.",
+    fullDescription: [
+      "Part of my work as class DevOps, this pipeline builds, scans, and deploys the class notes site on every change.",
+      "Nothing ships unless it passes the SonarQube quality gate and the Semgrep security scan.",
+    ],
+    features: [
+      "Self-hosted Jenkins and SonarQube on a GCP E2 VM",
+      "SonarQube quality gate to block low-quality code",
+      "Semgrep security scans on every build",
+      "Automated deployment to Cloudflare Workers",
+    ],
+    techStack: [
+      { name: "Jenkins", icon: SiJenkins, color: "#D24939" },
+      { name: "SonarQube", icon: SiSonarqubeserver, color: "#4E9BCD" },
+      { name: "Semgrep", icon: FaShieldAlt, color: "#1B2E3C" },
+      { name: "Cloudflare Workers", icon: SiCloudflareworkers, color: "#F38020" },
+      { name: "Google Cloud", icon: SiGooglecloud, color: "#4285F4" },
+    ],
+    links: { external: "https://notes.khalidlab.tech" },
+    note: "Master DevOps & Cloud Computing • FPL",
+    conclusion:
+      "Running the whole toolchain myself taught me far more about CI/CD than any lab: networking, resource limits, and keeping the pipeline reliable.",
+  },
+  {
+    id: "course-chatbot",
+    title: "Course Resources AI Chatbot",
+    period: "Dec 2025 - Present",
+    shortDescription:
+      "An AI chatbot that finds and returns the right course PDF from a natural-language request.",
+    fullDescription: [
+      "Built for my Master's class: ask for a course in plain language and the bot fetches the matching PDF from the shared Google Drive.",
+      "The frontend is Next.js, and the automation runs on a self-hosted n8n instance on a Galaxy S8.",
+    ],
+    features: [
+      "Natural-language search for course PDFs",
+      "Automated retrieval from the class's shared Google Drive",
+      "Self-hosted n8n workflows running on an old phone",
+    ],
+    techStack: [
+      { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
+      { name: "n8n", icon: SiN8N, color: "#EA4B71" },
+    ],
+    note: "Self-hosted • Master DevOps & Cloud Computing",
+    conclusion:
+      "Proof that a retired phone can run a surprisingly useful automation server.",
+  },
+  // {
+  //   id: "sales-dashboard",
+  //   title: "Sales Management Dashboard",
+  //   period: "Feb 2025 - Apr 2025",
+  //   shortDescription:
+  //     "A freelance full-stack web app with an analytics dashboard for tracking monthly sales.",
+  //   fullDescription: [
+  //     "Designed and built with Next.js and MongoDB, this app records sales and turns them into monthly analytics.",
+  //   ],
+  //   features: [
+  //     "Sales tracking and management",
+  //     "Analytics dashboard with monthly sales overview",
+  //   ],
+  //   techStack: [
+  //     { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
+  //     { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+  //   ],
+  //   note: "Freelance Project",
+  // },
+  // {
+  //   id: "desktop-invoicing",
+  //   title: "Desktop Invoicing App",
+  //   period: "Feb 2025 - Apr 2025",
+  //   shortDescription:
+  //     "A desktop application for creating and tracking invoices, built with Electron.js and React.",
+  //   fullDescription: [
+  //     "A freelance desktop app that lets you create invoices and keep track of them in one place.",
+  //   ],
+  //   features: [
+  //     "Invoice creation",
+  //     "Invoice tracking",
+  //     "Cross-platform desktop app",
+  //   ],
+  //   techStack: [
+  //     { name: "Electron", icon: SiElectron, color: "#47848F" },
+  //     { name: "React", icon: SiReact, color: "#61DAFB" },
+  //   ],
+  //   note: "Freelance Project",
+  // },
 ];
 
 // Helper function: grabs a single project by its slug/id
@@ -270,7 +393,18 @@ export function getProjectBySlug(slug: string): Project | undefined {
   return projects.find((project) => project.id === slug);
 }
 
-// Helper function: returns all projects
+// Helper function: returns all projects, newest first
+const PERIOD_MONTHS = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"];
+
+// Period is display text ("Dec 2025 - Present", "2025"), so only the start is parsed.
+// A year without a month ("2025") sorts as January of that year.
+function periodStart(period: string): number {
+  const match = period.match(/(?:([a-z]{3})\s+)?(\d{4})/i);
+  if (!match) return 0;
+  const month = match[1] ? PERIOD_MONTHS.indexOf(match[1].toLowerCase()) : 0;
+  return Number(match[2]) * 12 + month;
+}
+
 export function getAllProjects(): Project[] {
-  return projects;
+  return [...projects].sort((a, b) => periodStart(b.period) - periodStart(a.period));
 }

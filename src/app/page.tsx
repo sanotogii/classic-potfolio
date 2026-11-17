@@ -1,3 +1,4 @@
+import { CvQrFeedback } from "@/components/cv-qr-feedback";
 import Intro from "./intro";
 import Technologies from "./technologies";
 import Projects from "./projects";
@@ -12,6 +13,7 @@ export default function Home() {
       <Projects />
       <Certifications />
       <Contacts />
+      <CvQrFeedback />
     </div>
   );
 }
